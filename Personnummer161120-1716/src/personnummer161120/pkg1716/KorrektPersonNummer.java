@@ -22,8 +22,7 @@ public class KorrektPersonNummer {
 	private int yearCalendar = Calendar.YEAR;
         
 // Constructors 
-    public KorrektPersonNummer() {
-    }
+    public KorrektPersonNummer() {    }
 
     public KorrektPersonNummer(int year, int month, int day) {
         this.year = year;
@@ -36,20 +35,20 @@ public class KorrektPersonNummer {
 	public int getYearCalendar() { return yearCalendar; }
         public int getYear() { return year;  }
         public int getMonth(){ return month; }
-	public int getDay() {  return day;   }
+	public int getDay()  { return day;   }
 
         // Setters
         public void setYear(int year)   { this.year = year; }
 	public void setMonth(int month) { this.month = month; }
         public void setDay(int day)     { this.day = day; }
 
-// här fanns main i en provversion ///////////////////////////
+// här fanns main i en provversion
         
         public static boolean nummerValidering(String persNr) {
 
         int numberSize = persNr.length();
 
-        if (numberSize != 10) {
+        if (numberSize != 12) {
                 System.out.println("Personnummer är störe eller mindre än 10 siffror!");
                 return false;
 
@@ -65,7 +64,6 @@ public class KorrektPersonNummer {
 
 	public static boolean datumValidering(String persNr) { 
 
-		persNr = "19" + persNr;
 		KorrektPersonNummer kpn = new KorrektPersonNummer();
 
 		kalender.setTime(dagsdato);
@@ -74,17 +72,6 @@ public class KorrektPersonNummer {
 		kpn.setYear(Integer.parseInt(persNr.substring(0, 4)));
 		kpn.setMonth(Integer.parseInt(persNr.substring(4, 6)));
 		kpn.setDay(Integer.parseInt(persNr.substring(6, 8)));
-		
-
-		// Compare the year if 1900 or 2000...
-		if (kpn.getYear() >= 1947 && kpn.getYear() <= 1999) {
-			// do nothing..
-		} else if (kpn.getYear() >= 1900 && kpn.getYear() <= kpn.getYearCalendar()) {
-			kpn.setYear(kpn.getYear() + 100);
-
-		} else {
-			kpn.setYear(kpn.getYear() + 100);
-		}
 		
 
 		if (kpn.getYear() > kalender.get(kpn.getYearCalendar())) {
@@ -122,14 +109,14 @@ public class KorrektPersonNummer {
 
 	public static void checkNumber(String pn) { 
 
-		int lastNumber = Integer.parseInt(pn.substring(9, 10).toString());
-		pn = pn.substring(0, 9).toString();
+		int lastNumber = Integer.parseInt(pn.substring(11, 12).toString());
 
+                pn = pn.substring(2, 11).toString();
 		int summa = 0;
 		int summa2 = 0;
-		int[] testa = new int[10];
+                int[] testa = new int[10];
 		
-		
+
 		for (int i = 0; i < 9; i++) {
 			int number = Integer.parseInt(pn.substring(i, i +1));
 			
