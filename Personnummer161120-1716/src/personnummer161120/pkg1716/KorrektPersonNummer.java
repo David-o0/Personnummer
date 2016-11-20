@@ -49,7 +49,7 @@ public class KorrektPersonNummer {
         int numberSize = persNr.length();
 
         if (numberSize != 12) {
-                System.out.println("Personnummer är störe eller mindre än 10 siffror!");
+                System.out.println("Personnummer är störe eller mindre än 12 siffror!");
                 return false;
 
         } else if (persNr.matches("\\d+")) {

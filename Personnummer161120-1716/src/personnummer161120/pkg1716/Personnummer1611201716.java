@@ -20,7 +20,7 @@ public class Personnummer1611201716 {
 
 		while (true) {
 
-			System.out.println("Mata in ditt personnummer 10 siffror 'ÅÅMMDD-xxxx' eller 'ÅÅMMDDxxxx");
+			System.out.println("Mata in ditt personnummer 12 siffror 'ÅÅÅÅMMDD-xxxx' eller 'ÅÅÅÅMMDDxxxx");
 			Scanner scan = new Scanner(System.in);
                         String personNummer = scan.nextLine();
 			personNummer = personNummer.replaceAll("-", "").trim();
